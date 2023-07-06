@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Example</title>
+        <script src="jquery.js"></script>
+    </head>
+    <body>
+        <h1></h1>
+        <p>Hello Ninza Army</p>
+
+        <div class="my-class">This is a div with class 'my-class'.</div>
+
+        <p id="my-id">This is a paragraph with ID 'my-id'.</p>
+
+        <input type="text" value="Initial value">
+
+        <script>
+            $(document).ready(function() {
+                // jquery code here
+                $('h1').text('Hello, jQuery!!');
+            })
+
+            $(document).ready(function() {
+                // jquery code here
+                // for example let's change the text of a paragraph
+                $('p').text('jquery is awesome!!')
+            })
+
+            // Selecting elements by tag name
+            $('h1').css('color', 'red');
+
+            // Selecting elements by class
+            $('.my-class').hide();
+
+            // Selecting elements by ID
+            $('#my-id').fadeIn();
+
+            // Selecting elements by attribute
+            $('input[type="text"]').val('Hello, jQuery!!');
+        </script>
+    </body>
+</html>

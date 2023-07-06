@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bug Ninza</title>
+        <script src="jquery.js"></script>
+    </head>
+    <body>
+        <h1>Responding to User Interactions with Events</h1>
+        <div id="outer">
+            <div id="inner">
+                <button id="myButton">Click Me!!</button>
+            </div>
+        </div>
+
+        <button onclick="alert('button clicked')">Click Me!!!!!!!!!</button>
+        <input type="text" onkeyup="console.log('Key pressed')">
+
+        <ul id="myList">
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+        <script>
+            /*
+            const myButton = document.getElementById('myButton');
+
+            function handleClick() {
+                console.log('Button clicked');
+            }
+
+            myButton.addEventListener('click', handleClick);
+            */
+            /*
+            function handleOuter() {
+                console.log('Outer div clicked!');
+            }
+
+            function handleInner() {
+                console.log('inner div clicked!')
+            }
+
+            function handleClick() {
+                console.log('Button clicked');
+            }
+
+            const outerDiv = document.getElementById('outer');
+            const innerDiv = document.getElementById('inner');
+            const myButton = document.getElementById('myButton')
+
+            outerDiv.addEventListener('click', handleOuter, true);
+            innerDiv.addEventListener('click', handleInner, true);
+            myButton.addEventListener('click', handleClick);
+
+            */
+            /*
+            function handleClick(event) {
+                console.log('Event type: ', event.type);
+                console.log('Target element: ', event.target);
+
+            }
+
+            const myButton = document.getElementById('myButton');
+            myButton.addEventListener('click', handleClick)
+
+            */
+            //---------------
+            const myList = document.getElementById('myList');
+
+            function handleItemClick(event){
+                console.log('Clicked item: ', event.target.textContent);
+            }
+
+            myList.addEventListener('click', handleItemClick);
+
+            //---------------------
+            /*
+            function handleOuter(event) {
+                console.log('outer div clicked!!');
+            }
+
+            function handleInner(event) {
+                event.stopPropagation();
+                console.log('Inner Div clicked!!');
+            }
+
+            function handleClick(event){
+                event.preventDefault();
+                console.log('button clicked!!')
+            }
+
+            const outerDiv = document.getElementById('outer');
+            const innerDiv = document.getElementById('inner');
+            const myButton = document.getElementById('myButton');
+
+            outerDiv.addEventListener('click', handleOuter);
+            innerDiv.addEventListener('click', handleInner);
+            myButton.addEventListener('click', handleClick)
+            */
+            //-------------
+
+            $('.myButton').click(function() {
+                console.log('button pressed')
+            })
+
+        </script>
+    </body>
+</html>
