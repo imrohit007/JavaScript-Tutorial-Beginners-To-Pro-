@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Bug Ninza
+    </title>
+    <script src="jquery.js"></script>
+    <body>
+        <h1>Jquery and Ajax</h1>
+        <script>
+            $.ajax({
+                url: 'https://api.example.com/data', // replace this link with actual endpoint
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    // handle successful response
+                },
+                error: function(xhr, status, error) {
+                    // handle
+                }
+            });
+
+            // get
+            $.get('https://api.example.com/data', function(response) {
+                // handle successful response
+            })
+            .fail(function(xhr, status, error) {
+                // handle error
+            })
+
+            //post
+            $.post('https://api.example.com/data', {key: value}, function(response) {
+                // handle successful response
+            })
+            .fail(function(xhr, status, error) {
+                // handle error
+            })
+
+            // sending data with ajax requests
+            $.get('https://api.example.com/data', {key: value}, function(response){
+                // handle successful response
+            })
+            .fail(function(xhr, status, error) {
+                // handle error
+            })
+
+            //post
+            $.post('https://api.example.com/data', {key: value}, function(response) {
+                // handle successful response
+            })
+            .fail(function(xhr, status, error) {
+                // handle error
+            })
+
+            // successful callback
+            $.get('https://api.example.com/data', function(response){
+                // handle successful response
+                console.log( response)
+            });
+
+            // failure callback
+            $.get('https://api.example.com/data')
+            .fail(function( xhr, status, error ){
+                // handle error
+                console.error(error)
+            });
+
+            // receiving the JSON data
+            $.ajax({
+                url: 'https://api.example.com/data', // replace this link with actual endpoint
+                method: 'GET',
+                dataType: 'json',
+                success: function (response) {
+                    // handle successful response
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    // handle
+                }
+            });
+
+            // parsing json data
+            $.get('https://api.example.com/data', function(response) {
+                // handle successful response
+                var name = response.name;
+                var age = response.age;
+                console.log('Name', name);
+                console.log('Age', age);
+            });
+
+            function loadPage(pageNumber) {
+                $.get('https://api.example.com/data?page='+pageNumber, function(response){
+                    // handle successful response and update the page content
+                });
+            }
+            $('.pagination-link').on('click', function() {
+                var pageNumber = $(this).data('page');
+                loadPage(pageNumber);
+            });
+
+            $(window).scroll(function() {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+                    //load new content using ajax when reaching the bottom of the page
+                    $.get('https://api.example.com/data', function(response){
+                        // handle successful response and append new content to the page
+                    });
+                }
+            });
+
+            $('#myForm').submit(function(event) {
+                event.preventDefault(); //prevent the default form submission
+                var formData = $(this).serialize(); // gather form data
+
+                $.post('https://api.example.com/submit', formData, function(response){
+                    // handle successful response
+                })
+                .fail(function(xhr, status, error){
+                    // handle error
+                })
+            });
+
+            $('#myForm').submit(function(event) {
+                event.preventDefault(); //prevent the default form submission
+                var formData = $(this).serialize(); // gather form data
+
+                // perform form validation
+                if($('#name').val() === " || $('#email').val() ==="){
+                    alert('Please fill in all fields');
+                    return;
+                }
+
+                $.post('https://api.example.com/submit', formData, function(response){
+                    // handle successful response
+                })
+                .fail(function(xhr, status, error){
+                    // handle error
+                })
+            });
+
+
+        </script>
+    </body>
+</html>

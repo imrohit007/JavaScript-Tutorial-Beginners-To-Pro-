@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using jQuery</title>
+        <script src="jquery.js"></script>
+    </head>
+    <body>
+        <h1> Bug Ninza</h1>
+        <p id="myParagraph">This is a paragraph</p>
+        <div is="myDiv"></div>
+        <button class="myButton">Click Me!!!</button>
+        <img id="myImage" src="logo.jpg" alt="My Image">
+        <div class="myDiv"></div>
+        <button class="toggleButton">Toggle content</button>
+        <div class="content" style="display: none;">Content to toggle</div>
+        <span class="mySpan">Some text</span>
+        <div class="myDiv">Initial content</div>
+
+
+        <script>
+            // JS code here
+            $(document).ready(function() {
+                // changing HTML content
+                $('#myParagraph').text('Hello World');
+                $('#myDiv').append('<p> This is a new Paragraph!! </p>');
+            
+
+            // changing css properties
+            $('.myElement').css('background-color', 'red')
+
+            // Adding and removing classes
+            $('button').addClass('active');
+
+            // Modifying attributes
+            $('#myImage').attr('src', 'new-image.jpg')
+
+            //Animating elements
+            $('.myDiv').fadeIn();
+            $('.myDiv').slideDown();
+
+            // Modifying dimensions and positions
+            $('.myImage').width(400).height(300);
+            $('.myDiv').appendTo('.newParent');
+
+            //Handling visiblity and opacity
+            $('.toggleButton').click(function() {
+                $('.content').toggle();
+            });
+
+            $('.myImage').fadeIn();
+
+            // Handling element content and text
+            $('mySpan').text('New text content');
+            $('.myDiv').append('Appended text');
+
+        });
+        </script>
+    </body>
+</html>

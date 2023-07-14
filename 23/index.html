@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Event Handling Example</title>
+        <script src="jquery.js"></script>
+    </head>
+
+    <body>
+        <h1>Bug Ninza</h1>
+        <button id="myButton">Click Me</button>
+
+        <p id="myParagraph">Click me to change color</p>
+
+        <img src="logo.png" alt=""Image>
+
+        <div id="parentDiv">
+            <button>Dynamic Button 1</button>
+            <button>Dynamic Button 2</button>
+            <button>Dynamic Button 3</button>
+        </div>
+
+        <form>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div>
+            <button>Button inside Div</button>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                // Selecting the button element with ID 'myButton'
+                var button = $('#myButton');
+
+                // binding a click event to the button
+                button.on('click', function() {
+                    alert('Button Clicked!')
+                });
+
+                // Selecting the paragraph element with ID 'myParagraph'
+                var paragraph = $('#myParagraph')
+
+                //binding a click event to the paragraph
+                paragraph.on('click', function() {
+                    $(this).css('color', 'red')
+                });
+
+                // Selecting the image element
+                var image = $('img');
+
+                //Binding a hover event to the image
+                image.on('mouseenter', function() {
+                    $(this).attr('src', 'hover-image.jpg');
+                });
+
+                image.on('mouseleave', function() {
+                    $(this).attr('src', 'original-image.png');
+                });
+
+                // selecting the parent div
+                var parentDiv = $('#parentDiv');
+
+                // Delegating the click event to the parent Div
+                parentDiv.on('click', 'button', function(){
+                    alert('button clicked!!!!!')
+                });
+
+                //selecting the form element
+                var form = $('form');
+
+                //Binding a submit event to the form
+                form.on('submit', function(event) {
+                    event.preventDefault();
+                    alert('Form submission prevented!!')
+                });
+
+                // selecting the button and div elements
+                var button = $('button');
+                var div = $('div');
+
+                // Handling the button click event
+                button.on('click', function(event) {
+                    event.stopPropagation();
+                    alert('Button clicked!!!!!!!');
+                });
+
+                // Handling the div click event
+                div.on('click', function() {
+                    alert('Div clicked')
+                });
+
+                // selecting the button element
+                var button = $('button');
+
+                //Attaching event handlers using 'on' method
+                button.on('click', function() {
+                    alert('Event Handler 1');
+                });
+                button.on('click', function() {
+                    alert('Event Handler 2');
+                });
+                
+                // attaching event listener using 'click method'
+                button.click(function() {
+                    alert('Event Listener')
+                });
+
+                // selecting the button element
+                var button = $('button');
+
+                // attaching event handlers with namespaces
+                button.on('click.myNamespace', function() {
+                    alert('Event handler 1')
+                });
+                button.on('click.myNamespace', function() {
+                    alert('Event handler 2')
+                });
+
+                // triggering event handlers with namespaces
+                button.trigger('click.myNamespace');
+            })
+        </script>
+    </body>
+</html>
